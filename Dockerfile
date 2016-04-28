@@ -14,7 +14,6 @@ RUN apt-get update && apt-get -y install \
     zlib1g-dev \
     wget\
     libmcrypt-dev \
-    supervisor \
     openssh-server \
     openssh-client \
 
@@ -47,8 +46,6 @@ ENV APP_DOCUMENT_ROOT /var/app/web \
 
 COPY docker/php.ini /usr/local/etc/php/
 COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
-COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
 
 # enable apache and mod rewrite
 RUN a2ensite 000-default.conf \
