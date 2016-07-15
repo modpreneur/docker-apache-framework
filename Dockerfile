@@ -30,9 +30,8 @@ RUN apt-get update && apt-get -y install \
     && mv composer.phar /usr/bin/composer \
     && composer global require hirak/prestissimo \
 
-    && rm -rf /etc/apache2/sites-available/* /etc/apache2/sites-enabled/* \
+    && rm -rf /etc/apache2/sites-available/* /etc/apache2/sites-enabled/*
 
-RUN echo "modpreneur/apache-framework:0.5" >> /home/versions
 
 WORKDIR /var/app
 RUN mkdir web
@@ -52,3 +51,5 @@ RUN a2ensite 000-default.conf \
     && a2enmod expires \
     && a2enmod rewrite \
     && service apache2 restart
+
+RUN echo "modpreneur/apache-framework:0.5" >> /home/versions
