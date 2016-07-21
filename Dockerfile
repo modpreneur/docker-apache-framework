@@ -19,9 +19,11 @@ RUN apt-get update && apt-get -y install \
 
     && docker-php-ext-install curl json mbstring opcache zip mcrypt pdo_mysql pdo_pgsql\
 
-    && pecl install -o -f apcu-5.1.5 \
+    && pecl install -o -f apcu-5.1.5 apcu_bc-beta \
     && rm -rf /tmp/pear \
     && echo "extension=apcu.so" > /usr/local/etc/php/conf.d/apcu.ini \
+    && echo "extension=apc.so" >> /usr/local/etc/php/conf.d/apcu.ini \
+
 
     && docker-php-ext-configure bcmath \
     && docker-php-ext-install bcmath \
@@ -52,4 +54,4 @@ RUN a2ensite 000-default.conf \
     && a2enmod rewrite \
     && service apache2 restart
 
-RUN echo "modpreneur/apache-framework:0.5" >> /home/versions
+RUN echo "modpreneur/apache-framework:0.6" >> /home/versions
