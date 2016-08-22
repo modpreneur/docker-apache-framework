@@ -54,4 +54,4 @@ RUN a2ensite 000-default.conf \
     && a2enmod rewrite \
     && service apache2 restart
 
-RUN echo "modpreneur/apache-framework:0.6" >> /home/versions
+RUN echo "modpreneur/apache-framework:0.7" >> /home/versions
