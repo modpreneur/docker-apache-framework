@@ -59,4 +59,4 @@ RUN a2ensite 000-default.conf \
 
 WORKDIR /var/app
 
-RUN echo "modpreneur/apache-framework:0.8" >> /home/versions
+RUN echo "modpreneur/apache-framework:0.9" >> /home/versions
