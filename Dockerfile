@@ -40,14 +40,13 @@ RUN apt-get update && apt-get -y install \
     && mkdir /var/app/web
 
 
-#set apache
+#set apache site, enable rewrite
 COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
-RUN ln /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 
 ENV APP_DOCUMENT_ROOT /var/app/web \
  && APACHE_RUN_USER www-data \
  && APACHE_RUN_GROUP www-data \
- && APACHE_LOG_DIR /var/log/apache2 \
+ && APACHE_LOG_DIR /var/log/apache2
 
 # enable apache and mod rewrite
 RUN a2ensite 000-default.conf \
