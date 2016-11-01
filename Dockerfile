@@ -20,7 +20,7 @@ RUN apt-get update && apt-get -y install \
 
     && docker-php-ext-install curl json mbstring opcache zip bz2 mcrypt pdo_mysql pdo_pgsql\
 
-    && pecl install -o -f apcu-5.1.6 apcu_bc-beta \
+    && pecl install -o -f apcu-5.1.7 apcu_bc-beta \
     && rm -rf /tmp/pear \
     && echo "extension=apcu.so" > /usr/local/etc/php/conf.d/apcu.ini \
     && echo "extension=apc.so" >> /usr/local/etc/php/conf.d/apcu.ini \
@@ -57,4 +57,4 @@ RUN a2ensite 000-default.conf \
 
 WORKDIR /var/app
 
-RUN echo "modpreneur/apache-framework:1.0" >> /home/versions
+RUN echo "modpreneur/apache-framework:1.0.1" >> /home/versions
