@@ -1,9 +1,9 @@
-FROM php:7-apache
+FROM php:7.1-rc-apache
 
 
 MAINTAINER Martin Kolek <kolek@modpreneur.com>
 
-# install packages, apcu, bcmath for rabbit, postfix, composer with plugin for paraller install, clean apache sites
+# install packages, apcu, bcmath for rabbit, composer with plugin for paraller install, clean apache sites
 RUN apt-get update && apt-get -y install \
     apt-utils \
     curl \
@@ -57,4 +57,4 @@ RUN a2ensite 000-default.conf \
 
 WORKDIR /var/app
 
-RUN echo "modpreneur/apache-framework:1.0.1" >> /home/versions
+RUN echo "modpreneur/apache-framework:1.0.2" >> /home/versions
