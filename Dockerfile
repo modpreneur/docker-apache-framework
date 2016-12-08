@@ -1,4 +1,4 @@
-FROM php:7.1-rc-apache
+FROM php:7.1-apache
 
 
 MAINTAINER Martin Kolek <kolek@modpreneur.com>
@@ -57,4 +57,4 @@ RUN a2ensite 000-default.conf \
 
 WORKDIR /var/app
 
-RUN echo "modpreneur/apache-framework:1.0.2" >> /home/versions
+RUN echo "modpreneur/apache-framework:1.0.3" >> /home/versions
